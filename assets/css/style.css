@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@500&family=Montserrat:wght@400;500;600&display=swap");
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  --first-color: hsl(110, 92%, 56%);  /* #31ed3a */
+  --body-color: hsl(146, 84%, 12%);  /* #042918 */
+  --text-color: hsl(125, 84%, 30%);   /* Greenish, derived from first color */
+  --border-color: hsl(146, 70%, 40%); /* Border from greenish palette */
+  --white-color: hsl(0, 0%, 100%);    /* #fff */
+  --title-color: hsl(146, 56%, 20%);   /* Dark background from greenish hue */
+  --container-color: hsl(110, 50%, 85%); /* Light greenish tone */
+
+  /*========== Font and typography ==========*/
+  --body-font: "Montserrat", sans-serif;
+  --second-font: "Montagu Slab", serif;
+  --biggest-font-size: 2rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== BASE STYLES ==========*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+input,
+button {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background-color: var(--container-color);
+  color: var(--text-color);
+  transition: background-color .4s;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+h1, h2, h3, h4 {
+  color: var(--title-color);
+  font-family: var(--second-font);
+  font-weight: var(--font-medium);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.container {
+  max-width: 1220px;
+  margin-inline: 1.5rem;
+}
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+.section {
+  padding-block: 5rem 1rem;
+}
+.section__title {
+  text-align: center;
+  font-size: var(--h1-font-size);
+  font-family: var(--second-font);
+  margin-bottom: 2rem;
+}
+.main {
+  overflow: hidden; /* For animation ScrollReveal */
+}
+/* HEADER AND NAV */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+}
+.navbar {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--body-color);
+  padding: 2rem 2rem;
+}
+.hamburger-menu {
+  display: block;
+  color: var(--white-color);
+}
+.nav-list {
+display: flex;
+}
+.nav-item{
+  margin-right: 1.5rem;
+  font-size: var(--small-font-size);
+}
+.nav-link {
+  color: var(--white-color);
+  transition: color .4s;
+}
+.nav-action {
+  display: flex;
+  gap: 1rem;
+}
+.nav-action a {
+  color: var(--white-color);
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: var(--z-tooltip);
+  background-color: hsla(146, 84%, 12%, 0.1);
+  backdrop-filter: blur(5px);
+  display: none;
+  flex-direction: column;
+  padding: 2rem 2rem;
+  align-items: center;
+  justify-content: center;
+
+}
+.sidebar li {
+  margin-bottom: 1.5rem;
+}
+.close i {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+/*========== RESPONSIVE BREAKPOINTS ==========*/
+@media screen and (max-width: 800px) {
+  .nav-list{
+    display: none;
+  }
+}
+
+/* Min-width 800px */
+@media screen and (min-width: 801px) {
+  .hamburger-menu {
+    display: none;
+  }
+}
+
+/* HOME */
+.home-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.home-data {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+.home-bg {
+  position: absolute;
+  top: 3.5rem;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.home-bg video {
+  position: absolute;
+    object-fit: cover;
+    z-index: -1;
+}
+.home-title {
+  color: var(--white-color);
+  font-size: 5rem;
+}
+.home-desc {
+  text-transform: lowercase;
+  margin-bottom: 2rem;
+  color: var(--white-color);
+}
+.home-bg .overlay {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.home-btn {
+  color: var(--white-color);
+  background-color: var(--first-color);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 320px) {
+  
+}
+
+/* For medium devices */
+@media screen and (min-width: 450px) {
+  
+}
+@media screen and (min-width: 576px) {
+  
+}
+@media screen and (min-width: 768px) {
+  
+}
+
+/* For large devices */
+@media screen and (min-width: 1150px) {
+  
+}
+@media screen and (min-width: 1220px) {
+  
+}
