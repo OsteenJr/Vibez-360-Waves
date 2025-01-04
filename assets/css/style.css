@@ -51,7 +51,7 @@ button {
 }
 
 body {
-  background-color: var(--container-color);
+  background-color: var(--white-color);
   color: var(--text-color);
   transition: background-color .4s;
 }
@@ -171,6 +171,9 @@ display: flex;
   .nav-list{
     display: none;
   }
+  .hamburger-menu {
+    cursor: pointer;
+  }
 }
 
 /* Min-width 800px */
@@ -181,54 +184,13 @@ display: flex;
 }
 
 /* HOME */
-.home-section {
-  position: relative;
-  height: 100vh;
+.home {
+  
+}
+.home-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-}
-.home-data {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-}
-.home-bg {
-  position: absolute;
-  top: 3.5rem;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-.home-bg video {
-  position: absolute;
-    object-fit: cover;
-    z-index: -1;
-}
-.home-title {
-  color: var(--white-color);
-  font-size: 5rem;
-}
-.home-desc {
-  text-transform: lowercase;
-  margin-bottom: 2rem;
-  color: var(--white-color);
-}
-.home-bg .overlay {
-  position: absolute;
-  top: 8px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-.home-btn {
-  color: var(--white-color);
-  background-color: var(--first-color);
-  padding: 1rem 2rem;
-  border-radius: 10px;
 }
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
