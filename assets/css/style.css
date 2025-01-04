@@ -108,13 +108,14 @@ img, video {
   left: 0;
   width: 100%;
   height: var(--header-height);
+  z-index: 100;
 }
 .navbar {
   height: var(--header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--body-color);
+  background-color: black;
   padding: 2rem 2rem;
 }
 .hamburger-menu {
@@ -134,10 +135,13 @@ display: flex;
 }
 .nav-action {
   display: flex;
-  gap: 1rem;
+  gap: .5rem;
 }
 .nav-action a {
   color: var(--white-color);
+}
+.nav-action a i {
+  font-size: var(--small-font-size);
 }
 .sidebar {
   position: fixed;
@@ -145,9 +149,9 @@ display: flex;
   left: 0;
   width: 100%;
   height: 100vh;
-  z-index: var(--z-tooltip);
-  background-color: hsla(146, 84%, 12%, 0.1);
-  backdrop-filter: blur(5px);
+  z-index: 200;
+  background-color: hsla(140, 4%, 15%, 0.1);
+  backdrop-filter: blur(15px);
   display: none;
   flex-direction: column;
   padding: 2rem 2rem;
@@ -184,13 +188,87 @@ display: flex;
 }
 
 /* HOME */
-.home {
-  
-}
 .home-container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+.home-data {
+  position: absolute;
+  top: 50%;
+  left:45%;
+  transform: translate(-25%, -35%);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  z-index: 2;
+}
+.home-title {
+  color: white;
+  font-size: 2rem;
+}
+.home-data p {
+  color: white;
+  font-size: var(--small-font-size);
+  margin-left: 1rem;
+}
+.home-btn {
+  color: black;
+  background-color: white;
+  width: 50%;
+  font-size: var(--small-font-size);
+  padding: .5rem 0;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+/* About */
+.about {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.about-title {
+  color: black;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.about-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+}
+.about-desc {
+  text-align: center;
+  color: black;
+  font-size: var(--small-font-size);
+  margin-bottom: 1rem;
+}
+.about-image {
+  width: 50%;
+}
+.about-image img {
+  max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+.about-text {
+  width: 50%;
+  padding: 0 2rem;
+}
+.about-btn {
+  color: white;
+  background-color: black;
+  width: 50%;
+  font-size: var(--small-font-size);
+  padding: .5rem 1rem;
+  margin: 0 auto;
+
 }
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
