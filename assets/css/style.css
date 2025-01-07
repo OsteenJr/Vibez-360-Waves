@@ -270,6 +270,43 @@ display: flex;
   margin: 0 auto;
 
 }
+
+/* Categories */
+.categories {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem 3rem;
+}
+.categories-title {
+  color: black;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.categories-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+}
+.each-container {
+  background-color: rgb(231, 228, 228);
+  padding-bottom: 1rem;
+  text-align: left;
+}
+.each-container img {
+  width: 98%;
+  height: auto;
+  margin-bottom: 1rem;
+  margin: 0 auto;
+  padding: .5rem;
+  margin-bottom: .5rem;
+}
+.each-container p {
+  color: black;
+  font-size: var(--small-font-size);
+  margin-left: .5rem;
+  
+}
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */
 @media screen and (max-width: 1150px) {
@@ -351,7 +388,12 @@ display: flex;
     font-size: .9rem;
     margin-bottom: 2rem;
   }
-  
+  .categories-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .categories-title {
+    font-size: 2.3rem;
+  }
 }
 @media screen and (max-width: 600px) {
   .home-data {
@@ -381,6 +423,22 @@ display: flex;
   .about-desc {
     font-size: .8rem;
   }
+  .categories {
+    padding: 2rem 2rem;
+  }
+  .categories-title {
+    font-size: 2.3rem;
+  }
+  .categories-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .each-container {
+    background-color: rgb(231, 228, 228);
+    padding-bottom: .5rem;
+    text-align: left;
+  }
+
 }
 /* For small devices */
 @media screen and (max-width: 450px) {
@@ -404,6 +462,21 @@ display: flex;
   }
   .about-title {
     font-size: 2.1rem;
+  }
+  .categories {
+    padding: 2rem 1.5rem;
+  }
+  .categories-title {
+    font-size: 2.1rem;
+  }
+  .categories-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .each-container {
+    background-color: rgb(231, 228, 228);
+    padding-bottom: .5rem;
+    text-align: left;
   }
 }
 @media screen and (max-width: 320px) {
@@ -439,6 +512,22 @@ display: flex;
   }
   .nav-logo {
     width: 50px;
+  }
+  .categories {
+    padding: 0 2rem;
+  }
+  .categories-title {
+    font-size: 1.3rem;
+  }
+  .categories-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .each-container {
+    background-color: rgb(231, 228, 228);
+    padding-bottom: .5rem;
+    text-align: left;
+    margin-bottom: 1rem;
   }
 }
 
