@@ -92,11 +92,12 @@ img, video {
 .section {
   padding-block: 5rem 1rem;
 }
-.section__title {
+.section-title {
   text-align: center;
   font-size: var(--h1-font-size);
   font-family: var(--second-font);
-  margin-bottom: 2rem;
+  margin-bottom: 1.3rem;
+  color: #000;
 }
 .main {
   overflow: hidden; /* For animation ScrollReveal */
@@ -193,6 +194,7 @@ display: flex;
   height: 100vh;
   overflow: hidden;
   z-index: 1;
+  padding-top: var(--header-height);
 }
 .home-data {
   position: absolute;
@@ -276,7 +278,7 @@ display: flex;
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 2rem 3rem;
+  padding: 2rem 2rem;
 }
 .categories-title {
   color: black;
@@ -309,6 +311,9 @@ display: flex;
 }
 
 /* Testimonials */
+.testimonials {
+  margin-bottom: 3rem;
+}
 .testimonial-swiper {
   max-width: 1200px;
   padding: 2rem 1rem;
@@ -354,6 +359,59 @@ display: flex;
   color: black;
   font-weight: 900;
 }
+
+/* BLOG */
+.blog {
+  text-align: center;
+  padding: 2rem 2rem;
+}
+.section-subtitle {
+  font-size: var(--small-font-size);
+  color: #000;
+  margin-bottom: .75rem;
+}
+.blog-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1.5rem;
+}
+.blog-card {
+  display: flex;
+  flex-direction: column;
+}
+.blog-image {
+  position: relative;
+  margin-bottom: .69rem;
+}
+.blog-date {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  color: white;
+  background-color: red;
+  font-size: .5rem;
+  padding: .3rem .3rem;
+}
+.blog-details {
+  text-align: left;
+}
+.blog-title {
+  color: #000;
+  font-size: .75rem;
+  font-weight: 500;
+  margin-bottom: .6rem;
+}
+.blog-subtitle {
+  color: #000;
+  font-size: .6rem;
+  margin-bottom: .6rem;
+}
+.blog-link {
+  color: red;
+  font-size: .65rem;
+  cursor: pointer;
+}
+
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */
 @media screen and (max-width: 1150px) {
@@ -449,6 +507,17 @@ display: flex;
   }
   
 }
+@media screen and (max-width: 700px) {
+  .blog-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .blog-card {
+    margin-bottom: 1rem;
+  }
+  .testimonial-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 @media screen and (max-width: 600px) {
   .home-data {
     top: 22%;
@@ -498,7 +567,9 @@ display: flex;
   .testimonial-wrapper {
     grid-template-columns: 1fr 1fr;
   }
-  
+  .blog-container {
+    grid-template-columns: 1fr 1fr;
+  }
 
 }
 /* For small devices */
@@ -597,7 +668,9 @@ display: flex;
     font-size: 1.3rem;
     margin-bottom: .75rem;
   }
-
+  .blog-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 
