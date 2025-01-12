@@ -374,6 +374,7 @@ display: flex;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 .blog-card {
   display: flex;
@@ -511,6 +512,18 @@ display: flex;
   margin-bottom: 1rem;
 }
 
+/* BLOG PAGE */
+.main-blog {
+  margin-top: 3.5rem;
+}
+.blogload-btn {
+  color: white;
+  background-color: red;
+  width: 50%;
+  font-size: var(--small-font-size);
+  padding: .5rem 2rem;
+  margin: 0 auto;
+}
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */
 @media screen and (max-width: 1150px) {
@@ -613,7 +626,10 @@ display: flex;
   .footer-left {
     margin-bottom: 2.3rem;
   }
-  
+  .about-text-page {
+    text-align: start;
+    padding:4.5rem 6rem;
+  }
 }
 @media screen and (max-width: 700px) {
   .blog-container {
