@@ -153,6 +153,7 @@ display: flex;
   z-index: 200;
   background-color: hsla(140, 4%, 15%, 0.1);
   backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   display: none;
   flex-direction: column;
   padding: 2rem 2rem;
@@ -736,11 +737,20 @@ display: flex;
   }
   .footer-right {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr ;
   }
   .footer-col {
     margin-bottom: 1.4rem;
   }
+  .each-slide img {
+    width: 90px;
+    height: 90px;
+  }
+  .testimonial-text {
+    font-size: .7rem;
+  }
+  
+
 }
 @media screen and (max-width: 320px) {
   .home-data {
