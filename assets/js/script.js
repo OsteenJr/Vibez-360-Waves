@@ -69,6 +69,30 @@ ScrollReveal().reveal(".footer", {
     duration: 1000,
     delay: 100,    
 });
+
+// ==TESTIMONIAL PAGE CAROUSEL ===
+function scrollToPrevious() {
+    const testimonialWrapper = document.querySelector('.testimonial-wrapper');
+    const slideWidth = 432;
+    testimonialWrapper.scrollBy({
+        left: -slideWidth,  // Negative value scrolls left
+        top: 0,     // No vertical scrolling
+        behavior: 'smooth'  // Optional: adds smooth scrolling
+    });
+}
+
+function scrollRight() {
+    const testimonialWrapper = document.querySelector('.testimonial-wrapper');
+    const slideWidth = 432;
+    testimonialWrapper.scrollBy({
+        left: slideWidth,  // Positive value scrolls right
+        top: 0,     // No vertical scrolling
+        behavior: 'smooth'  // Optional: adds smooth scrolling
+    });
+}
+
+
+
 // ======SHOP PAGE =====
 // const products = {
 //     "Wave & Style Products": [
