@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@500&family=Montserrat:wght@400;500;600&display=swap");
 :root {
-  --header-height: 3.5rem;
+  --header-height: 4rem;
 
   /*========== Colors ==========*/
   --first-color: hsl(110, 92%, 56%);  /* #31ed3a */
@@ -136,13 +136,15 @@ display: flex;
 }
 .nav-action {
   display: flex;
-  gap: .5rem;
+  gap: 1rem;
 }
 .nav-action a {
   color: var(--white-color);
 }
 .nav-action a i {
-  font-size: var(--small-font-size);
+  font-size: 1rem;
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.8);
 }
 .sidebar {
   position: fixed;
@@ -170,6 +172,7 @@ display: flex;
   right: 2rem;
   color: var(--white-color);
   cursor: pointer;
+  font-size: 1rem;
 }
 
 /*========== RESPONSIVE BREAKPOINTS ==========*/
@@ -196,34 +199,36 @@ display: flex;
   overflow: hidden;
   z-index: 1;
   padding-top: var(--header-height);
+  position: relative;
 }
 .home-data {
   position: absolute;
   top: 50%;
-  left:45%;
-  transform: translate(-25%, -35%);
+  left:50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   text-align: center;
   z-index: 2;
 }
-.home-title {
-  color: white;
-  font-size: 2rem;
-}
 .home-data p {
-  color: white;
-  font-size: var(--small-font-size);
+  color: rgb(211, 208, 208);
   margin-left: 1rem;
 }
 .home-btn {
   color: black;
   background-color: white;
-  width: 50%;
+  width: 40%;
   font-size: var(--small-font-size);
   padding: .5rem 0;
   margin: 0 auto;
   margin-top: 1rem;
+  border-radius: 10px;
+}
+.home-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 /* About */
 .about {
@@ -552,11 +557,9 @@ display: flex;
 /* For large devices */
 @media screen and (max-width: 1150px) {
   .home-data {
-    top: 35%;
-    left:45%;
-  }
-  .home-title {
-    font-size: 3rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   .home-data p {
     font-size: 1rem;
@@ -589,12 +592,10 @@ display: flex;
 }
 /* For medium devices */
 @media screen and (max-width: 800px) {
-  .home-data {
-    top: 30%;
-    left: 40%;
-  }
-  .home-title {
-    font-size: 2.8rem;
+   .home-data {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   .home-data p {
     font-size: .9rem;
@@ -667,13 +668,6 @@ display: flex;
   }
 }
 @media screen and (max-width: 600px) {
-  .home-data {
-    top: 22%;
-    left: 40%;
-  }
-  .home-title {
-    font-size: 2.5rem;
-  }
   .home-data p {
     font-size: .7rem;
   }
@@ -722,13 +716,6 @@ display: flex;
 }
 /* For small devices */
 @media screen and (max-width: 450px) {
-  .home-data {
-    top: 18%;
-    left: 35%;
-  }
-  .home-title {
-    font-size: 2rem;
-  }
   .home-data p {
     font-size: .6rem;
   }

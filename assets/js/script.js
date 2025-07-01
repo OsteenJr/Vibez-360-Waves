@@ -73,7 +73,7 @@ ScrollReveal().reveal(".footer", {
 // ==TESTIMONIAL PAGE CAROUSEL ===
 function scrollToPrevious() {
     const testimonialWrapper = document.querySelector('.testimonial-wrapper');
-    const slideWidth = 432;
+    const slideWidth = 416;
     testimonialWrapper.scrollBy({
         left: -slideWidth,  // Negative value scrolls left
         top: 0,     // No vertical scrolling
@@ -83,7 +83,7 @@ function scrollToPrevious() {
 
 function scrollRight() {
     const testimonialWrapper = document.querySelector('.testimonial-wrapper');
-    const slideWidth = 432;
+    const slideWidth = 416;
     testimonialWrapper.scrollBy({
         left: slideWidth,  // Positive value scrolls right
         top: 0,     // No vertical scrolling
@@ -91,6 +91,31 @@ function scrollRight() {
     });
 }
 
+const openSearchBtn = document.getElementById('openSearchModal');
+const closeSearchBtn = document.getElementById('closeSearchModal');
+const searchModal = document.getElementById('searchModal');
+
+openSearchBtn.addEventListener('click', () => {
+    searchModal.classList.add('active');
+});
+
+closeSearchBtn.addEventListener('click', () => {
+    searchModal.classList.remove('active');
+});
+
+  // Optional: Close modal when you click outside the search content
+window.addEventListener('click', (e) => {
+    if (e.target === searchModal) {
+      searchModal.classList.remove('active');
+    }
+});
+
+// Optional: Press ESC to close modal
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      searchModal.classList.remove('active');
+    }
+});
 
 
 // ======SHOP PAGE =====
