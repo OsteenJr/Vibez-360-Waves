@@ -1,3 +1,66 @@
+const products = [
+    {
+            id: 1,
+            name: "Wave Curl Enhancer",
+            price: 10000,
+            rating: 4.5,
+            reviews: 5,
+            description: "Enhance and define your wave pattern with our lightweight Wave Curl Enhancer, delivering deep hydration, frizz control, and long-lasting hold for perfectly polished waves.",
+        image: ["assets/img/waveproduct 1.jpg"],
+        category: "Wave & Style Products"
+  },
+    {
+            id: 2,
+            name: "Sporting Wave Pomade and Relaxer",
+            price: 10000,
+            rating: 4.9,
+            reviews: 10,
+            description: "Achieve defined and smooth waves with Sporting Wave Cream, formulated to enhance your wave pattern while providing long-lasting moisture.",
+            image: ["assets/img/waveproduct 1.jpg"],
+            category: "Wave & Style Products"
+
+   },
+   {
+            id: 3,
+            name: "Crown Brush",
+            price: 7000,
+            rating: 4.5,
+            reviews: 2,
+            description: "Achieve precision and control with the Crown Brush, designed for smooth and effortless styling.",
+            image: ["assets/img/crown brush.jpg"],
+            category: "Brushes"
+        },
+        {
+            id: 4,
+            name: "Detangling Brush",
+            price: 12000,
+            rating: 5.0,
+            reviews: 1,
+            description: "Say goodbye to knots and tangles with the Detangling Brush, designed to gently glide through your hair without causing breakage. ",
+            image: ["assets/img/detangling brush.jpg"],
+            category: "Brushes"
+        },
+        {
+            id: 5,
+            name: "Plain Durags",
+            price: 4000,
+            rating: 4.8,
+            reviews: 70,
+            description: "Keep your waves in place with the Plain Durag, crafted for both comfort and functionality.",
+            image: ["assets/img/Durag for ash.jpg"],
+            category: "Durags"
+        },
+        {
+            id: 6,
+            name: "Customized Durag",
+            price:7000,
+            rating: 5.0,
+            reviews: 5,
+            description: "Make a bold statement with our Customized Durag, designed to offer both style and comfort.",
+            image: ["assets/img/download.jpg"],
+            category: "Durags"
+        },
+];
 function showSidebar() {
     const sidebar = document.querySelector('.sidebar');
     sidebar.style.display = 'flex';
@@ -7,45 +70,6 @@ function hideSidebar() {
     const sidebar = document.querySelector('.sidebar');
     sidebar.style.display = 'none';
 }
-
-/*=============== TESTIMONIAL SWIPER ===============*/
-// let swipertestimonial = new Swiper('.testimonial-swiper', {
-//     loop: true,  // Enables infinite looping of slides.
-//     spaceBetween: 16, // Sets the space between slides to 16 pixels.
-//     grabCursor: true, // Changes the cursor to a "grab" icon for better UX.
-//     slidesPerView: 'auto', // Automatically adjusts the number of slides visible based on container size.
-//     centeredSlides: true, // Centers the active slide within the viewport.
-
-
-//     autoplay: {
-//         delay: 3000, // Automatically moves to the next slide after 3000ms (3 seconds).
-//         disableOnInteraction: false, // Continues autoplay even after user interaction.
-//     },
-
-//     breakpoints: {
-//         // When window width is >= 480px (mobile landscape)
-//         480: {
-//             slidesPerView: 1,
-//             spaceBetween: 20
-//         },
-//         // When window width is >= 768px (tablet)
-//         768: {
-//             slidesPerView: 2,
-//             spaceBetween: 30
-//         },
-//         // When window width is >= 1024px (desktop)
-//         1024: {
-//             slidesPerView: 3,
-//             spaceBetween: 30
-//         },
-//         // When window width is >= 1200px (large desktop)
-//         1200: {
-//             slidesPerView: 4,
-//             spaceBetween: 30
-//         }
-//     }
-// });
-
 
 // ==========SCROLLREVEAL===========
 ScrollReveal().reveal(".header", {
@@ -201,160 +225,118 @@ window.onload = function() {
 			
 		})
 }
+// DOM ELEMENTS
+const searchIcon = document.getElementById('search-icon');
 
+//Initialize the application
+document.addEventListener('DOMContentLoaded', () => {
+    loadProducts();
+    setUpEventListeners();
+    updateCartDisplay();
+});
 
-// ======SHOP PAGE =====
-// const products = {
-//     "Wave & Style Products": [
-//         {
-//             id: 1,
-//             name: "Wave Curl Enhancer",
-//             price: 10000,
-//             rating: 4.5,
-//             reviews: 5,
-//             description: "Enhance and define your wave pattern with our lightweight Wave Curl Enhancer, delivering deep hydration, frizz control, and long-lasting hold for perfectly polished waves.",
-//             images: ["assets/img/waveproduct 1.jpg"]
-//         },
-//         {
-//             id: 2,
-//             name: "Sporting Wave Pomade and Relaxer",
-//             price: 10000,
-//             rating: 4.9,
-//             reviews: 10,
-//             description: "Achieve defined and smooth waves with Sporting Wave Cream, formulated to enhance your wave pattern while providing long-lasting moisture.",
-//             images: ["assets/img/waveproduct 1.jpg"]
-//         },
-//     ],
-//     "Brushes": [
-//         {
-//             id: 3,
-//             name: "Crown Brush",
-//             price: 7000,
-//             rating: 4.5,
-//             reviews: 2,
-//             description: "Achieve precision and control with the Crown Brush, designed for smooth and effortless styling.",
-//             images: ["assets/img/crown brush.jpg"]
-//         },
-//         {
-//             id: 4,
-//             name: "Detangling Brush",
-//             price: 12000,
-//             rating: 5.0,
-//             reviews: 1,
-//             description: "Say goodbye to knots and tangles with the Detangling Brush, designed to gently glide through your hair without causing breakage. ",
-//             images: ["assets/img/detangling brush.jpg"]
-//         },
-//     ],
-//     "Durags": [
-//         {
-//             id: 5,
-//             name: "Plain Durags",
-//             price: 4000,
-//             rating: 4.8,
-//             reviews: 70,
-//             description: "Keep your waves in place with the Plain Durag, crafted for both comfort and functionality.",
-//             images: ["assets/img/Durag for ash.jpg"]
-//         },
-//         {
-//             id: 6,
-//             name: "Customized Durag",
-//             price:7000,
-//             rating: 5.0,
-//             reviews: 5,
-//             description: "Make a bold statement with our Customized Durag, designed to offer both style and comfort.",
-//             images: ["assets/img/download.jpg"]
-//         },
-//     ]
-// };
-// //Initially set to null because no category or prodct is selected when the page first loads
-// let currentCategory = null;
-// let currentProduct = null;  
+//Event Listener Setup
+searchIcon.addEventListener('click', (e) => {
+    e.preventDefault();
+    showSearchModal();
+});
 
-// //Initializes the page 
-// function init () {
-//     renderCategories();
-// }
+//Close buttons
+document.getElementById('closeSearch').addEventListener('click', hideSearchModal);
 
-// //Render Categories
-// function renderCategories () {
-//     const categoriesGrid = document.getElementById('categories-grid');
-//     categoriesGrid.innerHTML = Object.keys(products).map(category => `
-//         <div class="category-card" onclick="showCategory('${category}')">
-//          <img src="assets/img/download.jpg/400/400" alt="${category}" class="category-image">
-//           <div class="category-overlay">
-//                 <h3 class="category-title">${category}</h3>
-//                 <div class="view-products">
-//                 View Products
-// <               i class="ri-arrow-right-line"></i>
-//                 </div>
-//             </div>
-//         </div>
+//Search Input 
+document.getElementById('searchInput').addEventListener('input', handleSearch);
 
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        hideSearchModal();
+    }
+});
 
-//         `).join('');
-// }
+//Search Functionality
+function showSearchModal() {
+    document.getElementById('searchModal').style.display = 'block';
+    document.getElementById('searchInput').focus();
+}
+function hideSearchModal() {
+    document.getElementById('searchModal').style.display = 'none';
+    document.getElementById('searchInput').value = '';
+    document.getElementById('searchResults').innerHTML = '';
+}
+function handleSearch() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const results = products.filter(product => 
+        product.name.toLowerCase().includes(query) || 
+        product.description.toLowerCase().includes(query)
+    );
 
-// // Show product details
-// function showProduct(productId) {
-//     currentProduct = products[currentCategory].find(p => p.id === productId);
-    
-//     document.getElementById('categories-view').classList.add('hidden');
-//     document.getElementById('category-view').classList.add('hidden');
-//     document.getElementById('product-view').classList.remove('hidden');
-    
-//     const productDetail = document.querySelector('.product-detail');
-//     productDetail.innerHTML = `
-//         <div class="product-gallery">
-//             <div class="main-image">
-//                 <img src="${currentProduct.images[0]}" alt="${currentProduct.name}" class="product-image">
-//             </div>
-//             <div class="thumbnail-grid">
-//                 ${currentProduct.images.map(img => `
-//                     <div class="thumbnail">
-//                         <img src="${img}" alt="${currentProduct.name}" class="product-image">
-//                     </div>
-//                 `).join('')}
-//             </div>
-//         </div>
-//         <div class="product-details">
-//             <div>
-//                 <h1 class="text-2xl font-bold">${currentProduct.name}</h1>
-//                 <div class="product-rating">
-//                     <i class="fas fa-star"></i>
-//                     ${currentProduct.rating} (${currentProduct.reviews} reviews)
-//                 </div>
-//                 <p class="text-2xl font-bold">$${currentProduct.price}</p>
-//             </div>
-//             <div>
-//                 <h3 class="font-medium mb-2">Size</h3>
-//                 <div class="size-grid">
-//                     ${['S', 'M', 'L', 'XL'].map(size => `
-//                         <button class="size-button" onclick="selectSize(this)">${size}</button>
-//                     `).join('')}
-//                 </div>
-//             </div>
-//             <button class="add-to-cart">Add to Cart</button>
-//             <div>
-//                 <h3 class="font-medium mb-2">Description</h3>
-//                 <p>${currentProduct.description}</p>
-//             </div>
-//         </div>
-//     `;
-//     productDetail.style.display = 'grid';
-// }
+    displaySearchResults(results);
+}
+function displaySearchResults(results) {
+    const resultsContainer = document.getElementById('searchResults');
 
-// // Show categories view
-// function showCategories() {
-//     document.getElementById('categories-view').classList.remove('hidden');
-//     document.getElementById('category-view').classList.add('hidden');
-//     document.getElementById('product-view').classList.add('hidden');
-// }
+    if (results.length === 0) {
+        resultsContainer.innerHTML = '<p style="text-align: center; color: #999; padding: 20px;">No products found.</p>';
+        return;
+    }
 
-// // Select size
-// function selectSize(button) {
-//     document.querySelectorAll('.size-button').forEach(btn => btn.classList.remove('selected'));
-//     button.classList.add('selected');
-// }
+    resultsContainer.innerHTML = results.map(product => `
+        <div class="search-result-item" onclick="selectSearchResult(${product.id})">
+            <img src="${product.image[0]}" alt="${product.name}" class="search-result-image">
+            <div class="search-result-details">
+                <h3 class="search-result-title">${product.name}</h3>
+                <p class="search-result-price">$${product.price.toFixed(2)}</p>
+                <p class="search-result-description">${product.description}</p>
+                <button class="add-to-cart" onclick="addToCart(${product.id})">Add to Cart</button>
+            </div>
+        </div>
+    `).join('');
+}
 
-// // Initialize the page
-// init();
+function selectSearchResult(productId) {
+    const product = products.find(p => p.id === productId);
+    if (product) {
+        addToCart(productId);
+        hideSearchModal();
+        showNotification(`Added ${product.name} to cart!`);
+
+    }
+}
+
+function addToCart(productId) {
+    const product = products.find(p => p.id === productId);
+    if (product) {
+        // Assuming you have a cart array to store items
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        showNotification(`Added ${product.name} to cart!`);
+        updateCartDisplay(); // Update cart UI if defined
+    }
+}
+
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.textContent = message;
+    notification.style.position = 'fixed';
+    notification.style.top = '20px';
+    notification.style.right = '20px';
+    notification.style.background = '#28a745';
+    notification.style.color = '#fff';
+    notification.style.padding = '10px 20px';
+    notification.style.borderRadius = '5px';
+    notification.style.zIndex = '1000';
+    document.body.appendChild(notification);
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+function loadProducts() {
+    // Logic to load products, if needed
+    console.log('Products loaded');
+}
+
+function updateCartDisplay() {
+    // Logic to update cart UI
+    console.log('Cart updated');
+}
