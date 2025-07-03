@@ -6,8 +6,8 @@ const products = [
             rating: 4.5,
             reviews: 5,
             description: "Enhance and define your wave pattern with our lightweight Wave Curl Enhancer, delivering deep hydration, frizz control, and long-lasting hold for perfectly polished waves.",
-        image: ["assets/img/waveproduct 1.jpg"],
-        category: "Wave & Style Products"
+            image: ["assets/img/waveproduct 1.jpg"],
+            category: "Wave & Style Products"
   },
     {
             id: 2,
