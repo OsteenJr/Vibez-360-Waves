@@ -1118,6 +1118,12 @@ display: flex;
   padding: .5rem 2rem;
   margin: 0 auto;
 }
+.categories-main-page {
+  margin-top: 6rem;
+  position: relative;
+  margin-bottom: 6rem;
+  
+}
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */
 @media screen and (max-width: 1150px) {

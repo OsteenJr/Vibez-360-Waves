@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibez360Waves - Shop</title>
+    <title>Categories - Vibez 360 Waves</title>
     <!-- =========SCROLLREVEAL======= -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <!-- ========FAVICON======= -->
@@ -11,17 +11,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" referrerpolicy="no-referrer"/>
     <!-- EXTERNAL STYLE SHEET -->
      <link rel="stylesheet" href="assets/css/style.css">
-     <!--=============== SWIPER CSS ===============-->
-     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+     
 </head>
 <body>
    
-   <header class="header">
+     <header class="header">
         <nav class="navbar">
         
         <a href="#" class="nav-logo"><img src="assets/img/VIBES 360 WAVES.png" alt="" width="70px"></a>
         <ul class="nav-list">
-            <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
             <li class="nav-item"><a href="#shop" class="nav-link">Shop</a></li>
             <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
@@ -37,78 +36,42 @@
         
         <ul class="sidebar">
             <a href="#" class="close" onclick="hideSidebar()"><i class="ri-close-line search-close" id="search-closer"></i></a>
-            <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
             <li class="nav-item"><a href="#shop" class="nav-link">Shop</a></li>
             <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
         </ul>
         </nav>
     </header>
-    <main class="shop-main container">
-         <!-- Categories View -->
-        <div id="categories-view">
-            <h1 class="section-title">Shop by Categories</h1>
-            <div class="grid categories-grid categories-container">
-                <!-- Categories will be inserted here -->
-                <a href="#" class="each-container category-card">
-                    <img src="assets/img/waveproduct 1.jpg" alt="">
-                    <p class="each-desc">Wave & Style Products</p>
-                </a>
-
-                <a href="#" class="each-container">
-                    <img src="assets/img/crown brush.jpg" alt="">
-                    <p class="each-desc">Brushes</p>
-                </a>
-
-                <a href="#" class="each-container">
-                    <img src="assets/img/download.jpg" alt="">
-                    <p class="each-desc">Durag</p>
-                </a>
-
-                <a href="#" class="each-container">
-                    <img src="assets/img/Large Mobile Hairdressing Session Kit Bag - Brown Snake.jpg" alt="">
-                    <p class="each-desc">Barbing Kit</p>
-                </a>
-
-                <a href="#" class="each-container">
-                    <img src="assets/img/Mentahan bag.jpg" alt="">
-                    <p class="each-desc">Merch</p>
-                </a>
-
-                <a href="#" class="each-container">
-                    <img src="assets/img/L'Oréal Men Expert Barber Club Bart & Haar Styling Pomad mit Zedernholzöl, 75 ml_.jpg" alt="">
-                    <p class="each-desc">Hair Products</p>
-                </a>
-
-                <a href="#" target="_blank" class="each-container">
-                    <img src="assets/img/Elastic Turban Twisted Turban Decorative Tassel Turban Men Stretchy Turban.jpg" alt="">
-                    <p class="each-desc">Head Wears</p>
-                </a>
-
-                <a href="#" class="each-container">
-                    <img src="assets/img/Stylish Bandana - White.jpg" alt="">
-                    <p class="each-desc">Hair Accessories</p>
-                </a>
+    <!-- Search Modal -->
+     <div class="search-modal" id="searchModal">
+        <div class="search-content">
+            <div class="search-header">
+                <h3>Search Products</h3>
+                <button class="close-btn" id="closeSearch">
+                    <i class="ri-close-line"></i>
+                </button>
             </div>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search for products...">
+            <div class="search-results" id="searchResults"></div>
         </div>
-         <!-- Category Products View -->
-        <div id="category-view">
-            <a href="#" onclick="showCategories()" class="back-btn"><i class="ri-arrow-left-line"></i>Back to Categories</a>
-            <h2 class="category-title"></h2>
-            <div class="grid products-grid">
-                 <!-- Products will be inserted here -->
-            </div>
-        </div>
+     </div>
+     <main class="categories-main-page">
+        <h2>Shop by Category</h2>
+        <select name="" id="category-filter" onchange="filterByCategory()">
+            <option value="all">All</option>
+            <option value="durags">Durags</option>
+            <option value="hair-care">Hair Care</option>
+            <option value="accessories">Hair Accessories</option>
+            <option value="wave-products">Wave & Style Products</option>
+            <option value="tools">Wave Tools & Barbing Kit</option>
+            <option value="merch">Merch</option>
+            <option value="brushes">Brushes</option>
+            <option value="head-wears">Head Wears</option>
 
-         <!-- Product Detail View -->
-          <div id="product-detail-view">
-            <a href="#" onclick="showCategory()" class="back-btn"><i class="ri-arrow-left-line"></i>Back to Products</a>
-            <div class="product-detail">
-                <!-- Product details will be dynamically inserted here -->
-            </div>
-          </div>
-    </main>
-
+        </select>
+        <div class="product-grid" id="productGrid"></div>
+     </main>
    <footer class="footer">
         <div class="footer-container">
             <div class="footer-top">
@@ -128,7 +91,7 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li class="nav-item"><a href="#home">Home</a></li>
+                        <li class="nav-item"><a href="index.html">Home</a></li>
                         <li class="nav-item"><a href="#about">About</a></li>
                         <li class="nav-item"><a href="#shop">Shop</a></li>
                         <li class="nav-item"><a href="#blog">Blog</a></li>
@@ -196,10 +159,10 @@
         </div>
     </footer>
 
-    <!--=============== SWIPER JS ===============-->
-    <script src="assets/js/swiper-bundle.min.js"></script>
+   
 
     <!--=============== SCRIPT JS ===============-->
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js" defer></script>
+    
 </body>
 </html>
