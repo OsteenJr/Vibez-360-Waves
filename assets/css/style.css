@@ -229,8 +229,8 @@ display: flex;
   overflow-y: auto;
 }
 .search-result-image {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   margin-right: 15px;
   border-radius: 5px;
@@ -241,10 +241,36 @@ display: flex;
   padding: 15px;
   border-bottom: 1px solid #eee;
   cursor: pointer;
-  transition: background 0.3s ease;
+  background-color: transparent;
+  transition: background-color 0.5s ease;
+  color: #000;
 }
 .search-result-item:hover {
-  background: #f8f9fa;
+  background-color: #f8f9fa;
+}
+.search-result-title {
+  color: #000;
+  margin-bottom: 1rem;
+}
+.search-result-price {
+  margin-bottom: 1rem;
+}
+.search-result-description {
+  font-size: 0.7rem;
+  margin-bottom: 1rem;
+}
+.add-to-cart {
+  background-color: #16502f;
+  color: #fff;
+  font-size: .8rem;
+  border: none;
+  padding: .5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.add-to-cart:hover {
+  background-color: #05381b;
 }
 .close-btn i {
   cursor: pointer;
@@ -252,6 +278,144 @@ display: flex;
 }
 .close-btn {
   background: transparent;
+}
+/* Product Card */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-card {
+    border: 1px solid #eee;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #000;
+    font-family: var(--body-font);
+}
+
+.product-card p {
+    color: #333;
+    font-weight: bold;
+    margin: 1rem;
+}
+.product-details {
+    padding: 20px;
+}
+
+.product-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.product-detail-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.product-detail-image {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-detail-info {
+    flex: 1;
+}
+
+.product-detail-info h2 {
+    font-size: 24px;
+    margin: 0 0 10px;
+}
+
+.product-detail-price {
+    color: #28a745;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.product-detail-description {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0;
+}
+
+.product-detail-category, .product-detail-rating {
+    font-size: 14px;
+    color: #333;
+    margin: 5px 0;
+}
+
+/* New styles for category section */
+.categories-main-page {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.categories-main-page h2 {
+    text-align: center;
+  font-size: var(--h1-font-size);
+  font-family: var(--second-font);
+  margin-bottom: 1.3rem;
+  color: #000;
+}
+
+#category-filter {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 30px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}
+
+#category-filter:focus {
+    outline: none;
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
 }
 /*========== RESPONSIVE BREAKPOINTS ==========*/
 @media screen and (max-width: 800px) {
@@ -1069,6 +1233,7 @@ display: flex;
   background-color: #16502f;
   color: #fff;
 }
+
 /* =====SHOP PAGE ===== */
 .hidden {
   display: none;

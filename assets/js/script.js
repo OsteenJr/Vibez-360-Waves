@@ -99,6 +99,7 @@ ScrollReveal().reveal(".footer", {
     delay: 100,
 });
 
+
 // vars
 ("use strict");
 var testim = document.getElementById("testimonials"),
@@ -263,7 +264,7 @@ function hideSearchModal() {
 }
 
 function handleSearch() {
-    const query = document.getElementById("searchInput").value.toLowerCase();
+    const query = document.getElementById("searchInput").value.toLowerCase().trim();
     const results = products.filter(
         (product) =>
             product.name.toLowerCase().includes(query) ||
@@ -305,7 +306,7 @@ function displaySearchResults(results) {
 }
 
 function selectSearchResult(productId) {
-    const product = products.find((p) => p.id === productId);
+    const product = products.find(p => p.id === productId);
     if (product) {
         addToCart(productId);
         hideSearchModal();
@@ -314,14 +315,13 @@ function selectSearchResult(productId) {
 }
 
 function addToCart(productId) {
-    const product = products.find((p) => p.id === productId);
+    const product = products.find(p => p.id === productId);
     if (product) {
-        // Assuming you have a cart array to store items
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
         cart.push(product);
         localStorage.setItem("cart", JSON.stringify(cart));
         showNotification(`Added ${product.name} to cart!`);
-        updateCartDisplay(); // Update cart UI if defined
+        updateCartDisplay(); 
     }
 }
 
@@ -331,7 +331,7 @@ function showNotification(message) {
     notification.style.position = "fixed";
     notification.style.top = "20px";
     notification.style.right = "20px";
-    notification.style.background = "#28a745";
+    notification.style.background = "#16502f";
     notification.style.color = "#fff";
     notification.style.padding = "10px 20px";
     notification.style.borderRadius = "5px";
