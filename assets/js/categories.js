@@ -6,7 +6,7 @@ ScrollReveal().reveal(".header", {
     delay: 100,
 });
 
-ScrollReveal().reveal(".section", {
+ScrollReveal().reveal(".categories-main-page", {
     origin: "bottom",
     distance: "20px",
     opacity: 0,
@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function loadProducts() {
     const productGrid = document.getElementById('productGrid');
     if (productGrid) {
+        console.log('Product grid found, loading products...');
         productGrid.innerHTML = products.map(product => `
             <div class="product-card">
                 <img src="${product.image[0]}" alt="${product.name}">
@@ -59,16 +60,18 @@ function filterByCategory() {
         return;
     }
 
+    console.log('Filtering by category:', category);
     const filteredProducts = category === 'all' ? products : products.filter(product => product.category === category);
 
-    productGrid.innerHTML = filteredProducts.map(product => `
-             <div class="product-card">
+    console.log('Filtered products:', filteredProducts.length);
+    productGrid.innerHTML = filteredProducts.length > 0 ? filteredProducts.map(product => `
+             <div class="product-card data-product-id="${product.id}">
                 <img src="${product.image[0]}" alt="${product.name}">
                 <h3>${product.name}</h3>
                 <p class="search-result-price">₦${product.price.toFixed(2)}</p>
                 <button class="add-to-cart" data-product-id="${product.id} onclick="addToCart(${product.id})">Add to Cart</button>
             </div>
-        `).join('');
+        `).join('') : '<p style="text-align: center; color: #999; padding: 20px;">No products found in this category.</p>';
         
         document.querySelectorAll('.product-card .add-to-cart').forEach(button => {
             button.addEventListener('click', () => {

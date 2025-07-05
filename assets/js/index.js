@@ -98,11 +98,6 @@ window.onload = function () {
             case 39:
                 testimRightArrow.click();
                 break;
-
-            case 39:
-                testimRightArrow.click();
-                break;
-
             default:
                 break;
         }

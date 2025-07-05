@@ -388,7 +388,7 @@ display: flex;
 }
 
 .categories-main-page h2 {
-    text-align: center;
+  text-align: center;
   font-size: var(--h1-font-size);
   font-family: var(--second-font);
   margin-bottom: 1.3rem;

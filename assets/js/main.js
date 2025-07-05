@@ -139,7 +139,7 @@ function displaySearchResults(results) {
         }
 
         searchResults.innerHTML = results.map(product => `
-            <div class="search-result-item" data-product-id="${product.id} onclick="selectSearchResult(${
+            <div class="search-result-item" data-product-id="${product.id}" onclick="selectSearchResult(${
             product.id})">
                 <img src="${product.image[0]}" alt="${product.name}" class="search-result-image">
                 <div class="search-result-details">
