@@ -1,0 +1,175 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibez360Waves - Product Details</title>
+    <!-- =========SCROLLREVEAL======= -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- ========FAVICON======= -->
+    <link rel="icon" href="assets/img/favicon-32x32.png" type="image/x-icon">
+    <!--=============== REMIXICONS ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" referrerpolicy="no-referrer"/>
+    <!-- EXTERNAL STYLE SHEET -->
+     <link rel="stylesheet" href="assets/css/style.css">
+     
+</head>
+<body>
+   
+     <header class="header">
+        <nav class="navbar">
+        
+        <a href="#" class="nav-logo"><img src="assets/img/VIBES 360 WAVES.png" alt="" width="70px"></a>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="categories.html" class="nav-link">Shop</a></li>
+            <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
+            
+        </ul>
+        <div class="nav-action">
+            <a href="#"><i class="ri-search-line search-btn" id="search-icon"></i></a>
+            <a href="#"><i class="ri-user-line user-btn" id="user-icon"></i></a>
+            <a href="#"><i class="ri-shopping-cart-line"></i><span id="cart-count">0</span></a>
+            <a href="#" class="hamburger-menu" onclick="showSidebar()"><i class="ri-menu-line"></i></a> 
+        </div>
+        
+        
+        <ul class="sidebar">
+            <a href="#" class="close" onclick="hideSidebar()"><i class="ri-close-line search-close" id="search-closer"></i></a>
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="categories.html" class="nav-link">Shop</a></li>
+            <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
+        </ul>
+        </nav>
+    </header>
+    <!-- Search Modal -->
+     <div class="search-modal" id="searchModal">
+        <div class="search-content">
+            <div class="search-header">
+                <h3>Search Products</h3>
+                <button class="close-btn" id="closeSearch">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search for products...">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+     </div>
+    
+    <main class="product-details-main">
+        <div class="product-details-container">
+                <div class="product-details-image">
+                    <img src="" alt="product Image" id="product-img">
+                </div>
+                <div class="product-details-info">
+                    <h2 id="product-name"></h2>
+                    <p id="product-price" class="product-details-price"></p>
+                    <p id="product-category" class="product-details-category"></p>
+                    <p id="product-description" class="product-details-description"></p>
+                    <p id="product-rating" class="product-details-rating"></p>
+                    <p id="product-stock" class="product-details-stock"></p>
+                    <div class="product-details-options">
+                        <select id="color-select">
+                            <option value="">Select Color</option>
+                        </select>
+                         <select id="size-select">
+                            <option value="">Select Size</option>
+                        </select>
+                    </div>
+                    <button id="add-to-cart" class="add-to-cart">Add to Cart</button>
+                </div>
+        </div>
+    </main>
+
+   <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-section">
+                    <h3>About Vibez 360 Waves</h3>
+                    <p>We're dedicated to providing you with the best products and services at competitive prices. Quality and customer satisfaction are our top priorities.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="X"><i class="ri-twitter-x-line"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                        <a href="#" aria-label="Youtube"><i class="ri-youtube-line"></i></a>
+                        <a href="#" aria-label="Whatsapp"><i class="ri-whatsapp-line"></i></a>
+                        <a href="#" aria-label="Email"><i class="ri-mail-line"></i></a>
+                        
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li class="nav-item"><a href="#home">Home</a></li>
+                        <li class="nav-item"><a href="#about">About</a></li>
+                        <li class="nav-item"><a href="#shop">Shop</a></li>
+                        <li class="nav-item"><a href="#blog">Blog</a></li>
+                        <li class="nav-item"><a href="#arrivals">New Arrivals</a></li>
+                        <li class="nav-item"><a href="#best">Best Sellers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li class="nav-item"><a href="#contact">Contact Us</a></li>
+                        <li class="nav-item"><a href="#faq">FAQ</a></li>
+                        <li class="nav-item"><a href="#">Shipping Info</a></li>
+                        <li class="nav-item"><a href="#">Returns & Exchanges</a></li>
+                        <li class="nav-item"><a href="#">Size Guide</a></li>
+                        <li class="nav-item"><a href="#">Order Tracking</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Stay Connected</h3>
+                    <p>Subscribe to our newsletter for exclusive deals and updates!</p>
+                    <form action="" class="newsletter-form">
+                        <input type="email" placeholder="Enter Your Email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+
+                    <div class="contact-info">
+                        <div class="phone">+234 (0) 123 456 7890</div>
+                        <div class="email">support@vibez360waves.com</div>
+                        <div class="address">Plot 123, Victoria Island, Lagos, Nigeria</div>
+                    </div>
+                </div>
+
+               
+            </div>
+             <div class="footer-section">
+                    <h3>We Accept</h3>
+                    <div class="payment-methods">
+                        <div class="payment-method">
+                            <img src="assets/img/Patricia_idwAtM_ZDg_1.png" alt="">
+                        </div>
+                        <div class="payment-method"> <img src="assets/img/Flutterwave_idpnSLnyQf_1.png" alt=""></div>
+                        <div class="payment-method"><img src="assets/img/Verve Card_idl9Vejk6d_0.png" alt=""></div>
+                        <div class="payment-method"><img src="assets/img/Mastercard_Symbol_1.png" alt=""></div>
+                        <div class="payment-method"><img src="assets/img/Visa Inc._idDUM8TcN7_1.png" alt=""></div>
+                        <div class="payment-method"><img src="assets/img/Stripe_Logo_1.png" alt=""></div>
+                        <div class="payment-method"><img src="assets/img/id0vMTCUuC_logos.png" alt=""></div>
+                        
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        © 2024 Vibez 360 Waves. All rights reserved.
+                    </div>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms Of Service</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Accessibility</a>
+                    </div>
+                </div>
+        </div>
+    </footer>
+    <!--=============== SCRIPT JS ===============-->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/products.js"></script>
+</body>
+</html>
