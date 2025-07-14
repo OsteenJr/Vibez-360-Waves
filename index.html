@@ -1,313 +1,452 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vibez360Waves</title>
     <!-- =========SCROLLREVEAL======= -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <!-- ========FAVICON======= -->
-    <link rel="icon" href="assets/img/favicon-32x32.png" type="image/x-icon">
+    <link rel="icon" href="assets/img/favicon-32x32.png" type="image/x-icon" />
     <!--=============== REMIXICONS ===============-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" referrerpolicy="no-referrer"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css"
+      referrerpolicy="no-referrer"
+    />
     <!-- EXTERNAL STYLE SHEET -->
-     <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-   
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
     <header class="header">
-        <nav class="navbar">
-        
-        <a href="#" class="nav-logo"><img src="assets/img/VIBES 360 WAVES.png" alt="" width="70px"></a>
+      <nav class="navbar">
+        <a href="index.html" class="nav-logo"
+          ><img src="assets/img/VIBES 360 WAVES.png" alt="" width="70px"
+        /></a>
         <ul class="nav-list">
-            <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="categories.html" class="nav-link">Shop</a></li>
-            <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
-            
+          <li class="nav-item">
+            <a href="#home" class="nav-link" onclick="hideSidebar()">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link" onclick="hideSidebar()">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="categories.html" class="nav-link" onclick="hideSidebar()"
+              >Shop</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#blog" class="nav-link" onclick="hideSidebar()">Blog</a>
+          </li>
         </ul>
         <div class="nav-action">
-            <a href="#"><i class="ri-search-line search-btn" id="search-icon"></i></a>
-            <a href="#"><i class="ri-user-line user-btn" id="user-icon"></i></a>
-            <a href="#"><i class="ri-shopping-cart-line"></i><span id="cart-count">0</span></a>
-            <a href="#" class="hamburger-menu" onclick="showSidebar()"><i class="ri-menu-line"></i></a> 
+          <a href="#"
+            ><i class="ri-search-line search-btn" id="search-icon"></i
+          ></a>
+          <a href="#" onclick="handleUserIconClick()"
+            ><i class="ri-user-line user-btn" id="user-icon"></i
+          ></a>
+          <a href="#" onclick="showCart()"
+            ><i class="ri-shopping-cart-line"></i
+            ><span id="cart-count">0</span></a
+          >
+          <a href="#" class="hamburger-menu" onclick="showSidebar()"
+            ><i class="ri-menu-line"></i
+          ></a>
         </div>
         <ul class="sidebar">
-            <a href="#" class="close" onclick="hideSidebar()"><i class="ri-close-line search-close" id="search-closer"></i></a>
-            <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="categories.html" class="nav-link">Shop</a></li>
-            <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
+          <a href="#" class="close" onclick="hideSidebar()"
+            ><i class="ri-close-line search-close" id="search-closer"></i
+          ></a>
+          <li class="nav-item">
+            <a href="#home" class="nav-link" onclick="hideSidebar()">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link" onclick="hideSidebar()">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="categories.html" class="nav-link" onclick="hideSidebar()"
+              >Shop</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#blog" class="nav-link" onclick="hideSidebar()">Blog</a>
+          </li>
         </ul>
-        </nav>
+      </nav>
     </header>
     <!-- Search Modal -->
-     <div class="search-modal" id="searchModal">
-        <div class="search-content">
-            <div class="search-header">
-                <h3>Search Products</h3>
-                <button class="close-btn" id="closeSearch">
-                    <i class="ri-close-line"></i>
-                </button>
-            </div>
-            <input type="text" class="search-input" id="searchInput" placeholder="Search for products...">
-            <div class="search-results" id="searchResults"></div>
+    <div class="search-modal" id="searchModal">
+      <div class="search-content">
+        <div class="search-header">
+          <h3>Search Products</h3>
+          <button class="close-btn" id="closeSearch">
+            <i class="ri-close-line"></i>
+          </button>
         </div>
-     </div>
-  <!-- MAIN -->
+        <input
+          type="text"
+          class="search-input"
+          id="searchInput"
+          placeholder="Search for products..."
+        />
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="authModal">
+      <div class="modal-content">
+        <i class="ri-close-line close" onclick="hideAuthModal()"></i>
+        <div id="auth-container">
+          <h2 id="auth-title">Login</h2>
+          <form action="" id="auth-form">
+            <div id="username-field">
+              <label for="username">Username:</label>
+              <input type="text" id="username" required />
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" required />
+            </div>
+            <div>
+              <label for="password">Password:</label>
+              <input type="password" id="password" required />
+            </div>
+            <button id="auth-submit" type="submit">Login</button>
+          </form>
+          <p id="auth-switch">
+            Don't have an account?
+            <a href="#" id="switch-to-signup">Sign up</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- MAIN -->
     <main>
-        <!-- Home -->
-         <section class="section home" id="home">
-            <div class="home-container">
-                <div class="home-data">
-                    
-                    <img src="assets/img/32ffc9ae-9a7b-49a5-9985-045e095abd82-removebg-preview.png" alt="">
-                    <p>Sculpt your waves, elevate your hair game</p>
-                    <a href="./shop.html" class="home-btn">Explore Now</a>
-                </div>
-                <div class="home-img">
-                    <img src="assets/img/pexels-pnw-prod-7327099.jpg" alt="" class="home-image">
-                </div>
+      <!-- Home -->
+      <section class="section home" id="home">
+        <div class="home-container">
+          <div class="home-data">
+            <img
+              src="assets/img/32ffc9ae-9a7b-49a5-9985-045e095abd82-removebg-preview.png"
+              alt=""
+            />
+            <p>Sculpt your waves, elevate your hair game</p>
+            <a href="categories.html" class="home-btn">Explore Now</a>
+          </div>
+          <div class="home-img">
+            <img
+              src="assets/img/pexels-pnw-prod-7327099.jpg"
+              alt=""
+              class="home-image"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- Categories -->
+      <section class="section shop categories" id="shop">
+        <h3 class="section-title">Shop by Categories</h3>
+        <div class="categories-container container">
+          <a href="categories.html" class="each-container">
+            <img src="assets/img/waveproduct 1.jpg" alt="" />
+            <p class="each-desc">Wave & Style Products</p>
+          </a>
+
+          <a href="categories.html" class="each-container">
+            <img src="assets/img/crown brush.jpg" alt="" />
+            <p class="each-desc">Brushes</p>
+          </a>
+
+          <a href="categories.html" class="each-container">
+            <img src="assets/img/download.jpg" alt="" />
+            <p class="each-desc">Durag</p>
+          </a>
+
+          <a href="categories.html" class="each-container">
+            <img
+              src="assets/img/Large Mobile Hairdressing Session Kit Bag - Brown Snake.jpg"
+              alt=""
+            />
+            <p class="each-desc">Barbing Kit</p>
+          </a>
+
+          <a href="categories.html" class="each-container">
+            <img src="assets/img/Mentahan bag.jpg" alt="" />
+            <p class="each-desc">Merch</p>
+          </a>
+
+          <a href="categories.html" class="each-container">
+            <img
+              src="assets/img/L'Oréal Men Expert Barber Club Bart & Haar Styling Pomad mit Zedernholzöl, 75 ml_.jpg"
+              alt=""
+            />
+            <p class="each-desc">Hair Products</p>
+          </a>
+
+          <a href="categories.html" target="_blank" class="each-container">
+            <img
+              src="assets/img/Elastic Turban Twisted Turban Decorative Tassel Turban Men Stretchy Turban.jpg"
+              alt=""
+            />
+            <p class="each-desc">Head Wears</p>
+          </a>
+
+          <a href="categories.html" class="each-container">
+            <img src="assets/img/Stylish Bandana - White.jpg" alt="" />
+            <p class="each-desc">Hair Accessories</p>
+          </a>
+        </div>
+      </section>
+      <section class="section testimonials" id="testimonials">
+        <h3 class="section-title">Don't Take Our Word for It</h3>
+        <div class="wrap">
+          <span>
+            <i id="right-arrow" class="ri-arrow-right-s-line arrow right"></i>
+          </span>
+          <span>
+            <i id="left-arrow" class="ri-arrow-left-s-line arrow left"></i>
+          </span>
+          <ul id="testimonial-dots" class="dots">
+            <li class="dot active"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+          </ul>
+          <div class="cont" id="testimonial-content">
+            <div class="active">
+              <div class="img">
+                <img
+                  src="assets/img/f3b04b11-8e70-4ff3-8a7f-f3a5b3b10950.jpg"
+                  alt=""
+                />
+              </div>
+              <h3>Onyeke Osteen Jr</h3>
+              <p>
+                "As a beginner, their products and guides made my wave journey
+                effortless!"
+              </p>
             </div>
-         </section>
-            <!-- Categories -->
-           <section class="section shop categories" id="shop">
-            <h3 class="section-title">Shop by Categories</h3>
-            <div class="categories-container container">
-                <a href="#" class="each-container">
-                    <img src="assets/img/waveproduct 1.jpg" alt="">
-                    <p class="each-desc">Wave & Style Products</p>
-                </a>
-
-                <a href="#" class="each-container">
-                    <img src="assets/img/crown brush.jpg" alt="">
-                    <p class="each-desc">Brushes</p>
-                </a>
-
-                <a href="#" class="each-container">
-                    <img src="assets/img/download.jpg" alt="">
-                    <p class="each-desc">Durag</p>
-                </a>
-
-                <a href="#" class="each-container">
-                    <img src="assets/img/Large Mobile Hairdressing Session Kit Bag - Brown Snake.jpg" alt="">
-                    <p class="each-desc">Barbing Kit</p>
-                </a>
-
-                <a href="#" class="each-container">
-                    <img src="assets/img/Mentahan bag.jpg" alt="">
-                    <p class="each-desc">Merch</p>
-                </a>
-
-                <a href="#" class="each-container">
-                    <img src="assets/img/L'Oréal Men Expert Barber Club Bart & Haar Styling Pomad mit Zedernholzöl, 75 ml_.jpg" alt="">
-                    <p class="each-desc">Hair Products</p>
-                </a>
-
-                <a href="#" target="_blank" class="each-container">
-                    <img src="assets/img/Elastic Turban Twisted Turban Decorative Tassel Turban Men Stretchy Turban.jpg" alt="">
-                    <p class="each-desc">Head Wears</p>
-                </a>
-
-                <a href="#" class="each-container">
-                    <img src="assets/img/Stylish Bandana - White.jpg" alt="">
-                    <p class="each-desc">Hair Accessories</p>
-                </a>
+            <div>
+              <div class="img">
+                <img src="assets/img/How Do I Look In My Durag_.jpg" alt="" />
+              </div>
+              <h3>Adam Tomori</h3>
+              <p>
+                "Great products and even better customer service—highly
+                recommend!"
+              </p>
             </div>
-
-           </section>
-           <section class="section testimonials" id="testimonials">
-            <h3 class="section-title">Don't Take Our Word for It</h3>
-                <div class="wrap">
-                    <span>
-                        <i id="right-arrow" class="ri-arrow-right-s-line arrow right"></i>
-                    </span>
-                    <span>
-                        <i id="left-arrow" class="ri-arrow-left-s-line arrow left"></i>
-                    </span>
-                    <ul id="testimonial-dots" class="dots">
-                        <li class="dot active"></li>
-                        <li class="dot"></li>
-                        <li class="dot"></li>
-                        <li class="dot"></li>
-                        <li class="dot"></li>
-                    </ul>
-                    <div class="cont" id="testimonial-content">
-                        <div class="active">
-                            <div class="img"><img src="assets/img/f3b04b11-8e70-4ff3-8a7f-f3a5b3b10950.jpg" alt=""></div>
-                            <h3>Onyeke Osteen Jr</h3>
-                            <p>"As a beginner, their products and guides made my wave journey effortless!"</p>
-                        </div>
-                        <div>
-                            <div class="img">
-                                <img src="assets/img/How Do I Look In My Durag_.jpg" alt="">
-                            </div>
-                            <h3>Adam Tomori</h3>
-                            <p>"Great products and even better customer service—highly recommend!"</p>
-                        </div>
-                        <div>
-                            <div class="img">
-                                <img src="assets/img/@cripgloss.jpg" alt="">
-                            </div>
-                            <h3>Khalid</h3>
-                            <p class="testimonial-text">"I was skeptical at first, but their products really do make a difference!"</p>
-                        </div>
-                        <div>
-                            <div class="img">
-                               <img src="assets/img/afa9508e-c309-4f88-b09b-50c5194db35f.jpg" alt="">
-                            </div>
-                            <h3>CEO, Sporting Waves</h3>
-                            <p>"Their durags are the best I’ve used—great fit and amazing compression!"</p>
-                        </div>
-                        <div>
-                            <div class="img">
-                                <img src="assets/img/How Do I Look In My Durag_.jpg" alt="">
-                            </div>
-                            <h3>Bukayo Saka</h3>
-                            <p>"Great products and even better customer service—highly recommend!"</p>
-                        </div>
-                    </div>
-                </div>
-           </section>
-           
-           <section class="section blog" id="blog">
-            <h3 class="section-title">The Wave Chronicles</h3>
-            <p class="section-subtitle">Expert Tips, Inspiring Stories, and the Latest Trends in Wave Culture</p>
-            <div class="blog-container">
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="assets/img/blog 1.jpg" alt="">
-                        <p class="blog-date">1 January, 2025</p>
-                    </div>
-                    <div class="blog-details">
-                        <h4 class="blog-title">The Ultimate Guide to Starting our Wave Journey</h4>
-                        <p class="blog-subtitle">
-                            A beginner-friendly article on tools, techniques, and timelines.
-                        </p>
-                        <a href="#" class="blog-link">Read More <i class="ri-arrow-right-line"></i></a>
-                    </div>
-                </div>
-
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="assets/img/blog 2.jpg" alt="">
-                        <p class="blog-date">3 January, 2025</p>
-                    </div>
-                    <div class="blog-details">
-                        <h4 class="blog-title">The Science Behind Healthy Hair for Wavers</h4>
-                        <p class="blog-subtitle">
-                            Insight into proper hair care routines for maintaining strong, healthy hair.
-                        </p>
-                        <a href="#" class="blog-link">Read More <i class="ri-arrow-right-line"></i></a>
-                    </div>
-                </div>
-
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="assets/img/blog 3.jpg" alt="">
-                        <p class="blog-date">4 January, 2025</p>
-                    </div>
-                    <div class="blog-details">
-                        <h4 class="blog-title">Top 5 Mistakes to Avoid When Brushing for Waves</h4>
-                        <p class="blog-subtitle">
-                            Tips to help wavers acheive results faster by avoiding common pitfalls.
-                        </p>
-                        <a href="#" class="blog-link">Read More <i class="ri-arrow-right-line"></i></a>
-                    </div>
-                </div>
+            <div>
+              <div class="img">
+                <img src="assets/img/@cripgloss.jpg" alt="" />
+              </div>
+              <h3>Khalid</h3>
+              <p class="testimonial-text">
+                "I was skeptical at first, but their products really do make a
+                difference!"
+              </p>
             </div>
-           </section>
+            <div>
+              <div class="img">
+                <img
+                  src="assets/img/afa9508e-c309-4f88-b09b-50c5194db35f.jpg"
+                  alt=""
+                />
+              </div>
+              <h3>CEO, Sporting Waves</h3>
+              <p>
+                "Their durags are the best I’ve used—great fit and amazing
+                compression!"
+              </p>
+            </div>
+            <div>
+              <div class="img">
+                <img src="assets/img/How Do I Look In My Durag_.jpg" alt="" />
+              </div>
+              <h3>Bukayo Saka</h3>
+              <p>
+                "Great products and even better customer service—highly
+                recommend!"
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-           
+      <section class="section blog" id="blog">
+        <h3 class="section-title">The Wave Chronicles</h3>
+        <p class="section-subtitle">
+          Expert Tips, Inspiring Stories, and the Latest Trends in Wave Culture
+        </p>
+        <div class="blog-container">
+          <div class="blog-card">
+            <div class="blog-image">
+              <img src="assets/img/blog 1.jpg" alt="" />
+              <p class="blog-date">1 January, 2025</p>
+            </div>
+            <div class="blog-details">
+              <h4 class="blog-title">
+                The Ultimate Guide to Starting our Wave Journey
+              </h4>
+              <p class="blog-subtitle">
+                A beginner-friendly article on tools, techniques, and timelines.
+              </p>
+              <a href="#" class="blog-link"
+                >Read More <i class="ri-arrow-right-line"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-image">
+              <img src="assets/img/blog 2.jpg" alt="" />
+              <p class="blog-date">3 January, 2025</p>
+            </div>
+            <div class="blog-details">
+              <h4 class="blog-title">
+                The Science Behind Healthy Hair for Wavers
+              </h4>
+              <p class="blog-subtitle">
+                Insight into proper hair care routines for maintaining strong,
+                healthy hair.
+              </p>
+              <a href="#" class="blog-link"
+                >Read More <i class="ri-arrow-right-line"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-image">
+              <img src="assets/img/blog 3.jpg" alt="" />
+              <p class="blog-date">4 January, 2025</p>
+            </div>
+            <div class="blog-details">
+              <h4 class="blog-title">
+                Top 5 Mistakes to Avoid When Brushing for Waves
+              </h4>
+              <p class="blog-subtitle">
+                Tips to help wavers acheive results faster by avoiding common
+                pitfalls.
+              </p>
+              <a href="#" class="blog-link"
+                >Read More <i class="ri-arrow-right-line"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-top">
-                <div class="footer-section">
-                    <h3>About Vibez 360 Waves</h3>
-                    <p>We're dedicated to providing you with the best products and services at competitive prices. Quality and customer satisfaction are our top priorities.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="X"><i class="ri-twitter-x-line"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-                        <a href="#" aria-label="Youtube"><i class="ri-youtube-line"></i></a>
-                        <a href="#" aria-label="Whatsapp"><i class="ri-whatsapp-line"></i></a>
-                        <a href="#" aria-label="Email"><i class="ri-mail-line"></i></a>
-                        
-                    </div>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li class="nav-item"><a href="#home">Home</a></li>
-                        <li class="nav-item"><a href="#about">About</a></li>
-                        <li class="nav-item"><a href="#shop">Shop</a></li>
-                        <li class="nav-item"><a href="#blog">Blog</a></li>
-                        <li class="nav-item"><a href="#arrivals">New Arrivals</a></li>
-                        <li class="nav-item"><a href="#best">Best Sellers</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Customer Service</h3>
-                    <ul>
-                        <li class="nav-item"><a href="#contact">Contact Us</a></li>
-                        <li class="nav-item"><a href="#faq">FAQ</a></li>
-                        <li class="nav-item"><a href="#">Shipping Info</a></li>
-                        <li class="nav-item"><a href="#">Returns & Exchanges</a></li>
-                        <li class="nav-item"><a href="#">Size Guide</a></li>
-                        <li class="nav-item"><a href="#">Order Tracking</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Stay Connected</h3>
-                    <p>Subscribe to our newsletter for exclusive deals and updates!</p>
-                    <form action="" class="newsletter-form">
-                        <input type="email" placeholder="Enter Your Email" required>
-                        <button type="submit">Subscribe</button>
-                    </form>
-
-                    <div class="contact-info">
-                        <div class="phone">+234 (0) 123 456 7890</div>
-                        <div class="email">support@vibez360waves.com</div>
-                        <div class="address">Plot 123, Victoria Island, Lagos, Nigeria</div>
-                    </div>
-                </div>
-
-               
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-section">
+            <h3>About Vibez 360 Waves</h3>
+            <p>
+              We're dedicated to providing you with the best products and
+              services at competitive prices. Quality and customer satisfaction
+              are our top priorities.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="X"><i class="ri-twitter-x-line"></i></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="ri-instagram-line"></i
+              ></a>
+              <a href="#" aria-label="Youtube"
+                ><i class="ri-youtube-line"></i
+              ></a>
+              <a href="#" aria-label="Whatsapp"
+                ><i class="ri-whatsapp-line"></i
+              ></a>
+              <a href="#" aria-label="Email"><i class="ri-mail-line"></i></a>
             </div>
-             <div class="footer-section">
-                    <h3>We Accept</h3>
-                    <div class="payment-methods">
-                        <div class="payment-method">
-                            <img src="assets/img/Patricia_idwAtM_ZDg_1.png" alt="">
-                        </div>
-                        <div class="payment-method"> <img src="assets/img/Flutterwave_idpnSLnyQf_1.png" alt=""></div>
-                        <div class="payment-method"><img src="assets/img/Verve Card_idl9Vejk6d_0.png" alt=""></div>
-                        <div class="payment-method"><img src="assets/img/Mastercard_Symbol_1.png" alt=""></div>
-                        <div class="payment-method"><img src="assets/img/Visa Inc._idDUM8TcN7_1.png" alt=""></div>
-                        <div class="payment-method"><img src="assets/img/Stripe_Logo_1.png" alt=""></div>
-                        <div class="payment-method"><img src="assets/img/id0vMTCUuC_logos.png" alt=""></div>
-                        
-                    </div>
-                </div>
+          </div>
 
-                <div class="footer-bottom">
-                    <div class="copyright">
-                        © 2024 Vibez 360 Waves. All rights reserved.
-                    </div>
-                    <div class="footer-bottom-links">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms Of Service</a>
-                        <a href="#">Cookie Policy</a>
-                        <a href="#">Accessibility</a>
-                    </div>
-                </div>
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li class="nav-item"><a href="#home">Home</a></li>
+              <li class="nav-item"><a href="#about">About</a></li>
+              <li class="nav-item"><a href="#shop">Shop</a></li>
+              <li class="nav-item"><a href="#blog">Blog</a></li>
+              <li class="nav-item"><a href="#arrivals">New Arrivals</a></li>
+              <li class="nav-item"><a href="#best">Best Sellers</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Customer Service</h3>
+            <ul>
+              <li class="nav-item"><a href="#contact">Contact Us</a></li>
+              <li class="nav-item"><a href="#faq">FAQ</a></li>
+              <li class="nav-item"><a href="#">Shipping Info</a></li>
+              <li class="nav-item"><a href="#">Returns & Exchanges</a></li>
+              <li class="nav-item"><a href="#">Size Guide</a></li>
+              <li class="nav-item"><a href="#">Order Tracking</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Stay Connected</h3>
+            <p>Subscribe to our newsletter for exclusive deals and updates!</p>
+            <form action="" class="newsletter-form">
+              <input type="email" placeholder="Enter Your Email" required />
+              <button type="submit">Subscribe</button>
+            </form>
+
+            <div class="contact-info">
+              <div class="phone">+234 (0) 123 456 7890</div>
+              <div class="email">support@vibez360waves.com</div>
+              <div class="address">
+                Plot 123, Victoria Island, Lagos, Nigeria
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="footer-section">
+          <h3>We Accept</h3>
+          <div class="payment-methods">
+            <div class="payment-method">
+              <img src="assets/img/Patricia_idwAtM_ZDg_1.png" alt="" />
+            </div>
+            <div class="payment-method">
+              <img src="assets/img/Flutterwave_idpnSLnyQf_1.png" alt="" />
+            </div>
+            <div class="payment-method">
+              <img src="assets/img/Verve Card_idl9Vejk6d_0.png" alt="" />
+            </div>
+            <div class="payment-method">
+              <img src="assets/img/Mastercard_Symbol_1.png" alt="" />
+            </div>
+            <div class="payment-method">
+              <img src="assets/img/Visa Inc._idDUM8TcN7_1.png" alt="" />
+            </div>
+            <div class="payment-method">
+              <img src="assets/img/Stripe_Logo_1.png" alt="" />
+            </div>
+            <div class="payment-method">
+              <img src="assets/img/id0vMTCUuC_logos.png" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="copyright">
+            © 2024 Vibez 360 Waves. All rights reserved.
+          </div>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms Of Service</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
     </footer>
-    
+
     <!--=============== SCRIPT JS ===============-->
     <script src="assets/js/main.js" defer></script>
     <script src="assets/js/index.js" defer></script>
-</body>
+  </body>
 </html>

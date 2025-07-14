@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vibez360Waves - Product Details</title>
+    <title>Vibez360Waves - Profile</title>
     <!-- =========SCROLLREVEAL======= -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <!-- ========FAVICON======= -->
@@ -24,20 +24,28 @@
         /></a>
         <ul class="nav-list">
           <li class="nav-item">
-            <a href="index.html" class="nav-link">Home</a>
+            <a href="#home" class="nav-link" onclick="hideSidebar()">Home</a>
           </li>
-          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
           <li class="nav-item">
-            <a href="categories.html" class="nav-link">Shop</a>
+            <a href="#about" class="nav-link" onclick="hideSidebar()">About</a>
           </li>
-          <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
+          <li class="nav-item">
+            <a href="categories.html" class="nav-link" onclick="hideSidebar()"
+              >Shop</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#blog" class="nav-link" onclick="hideSidebar()">Blog</a>
+          </li>
         </ul>
         <div class="nav-action">
           <a href="#"
             ><i class="ri-search-line search-btn" id="search-icon"></i
           ></a>
-          <a href="#"><i class="ri-user-line user-btn" id="user-icon"></i></a>
-          <a href="#"
+          <a href="#" onclick="handleUserIconClick()"
+            ><i class="ri-user-line user-btn" id="user-icon"></i
+          ></a>
+          <a href="#" onclick="showCart()"
             ><i class="ri-shopping-cart-line"></i
             ><span id="cart-count">0</span></a
           >
@@ -45,19 +53,24 @@
             ><i class="ri-menu-line"></i
           ></a>
         </div>
-
         <ul class="sidebar">
           <a href="#" class="close" onclick="hideSidebar()"
             ><i class="ri-close-line search-close" id="search-closer"></i
           ></a>
           <li class="nav-item">
-            <a href="index.html" class="nav-link">Home</a>
+            <a href="#home" class="nav-link" onclick="hideSidebar()">Home</a>
           </li>
-          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
           <li class="nav-item">
-            <a href="categories.html" class="nav-link">Shop</a>
+            <a href="#about" class="nav-link" onclick="hideSidebar()">About</a>
           </li>
-          <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
+          <li class="nav-item">
+            <a href="categories.html" class="nav-link" onclick="hideSidebar()"
+              >Shop</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#blog" class="nav-link" onclick="hideSidebar()">Blog</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -80,28 +93,58 @@
       </div>
     </div>
 
-    <main class="product-details-main">
-      <div class="product-details-container">
-        <div class="product-details-image">
-          <img src="" alt="product Image" id="product-img" />
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="authModal">
+      <div class="modal-content">
+        <i class="ri-close-line close" onclick="hideAuthModal()"></i>
+        <div id="auth-container">
+          <h2 id="auth-title">Login</h2>
+          <form action="" id="auth-form">
+            <div id="username-field">
+              <label for="username">Username:</label>
+              <input type="text" id="username" required />
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" required />
+            </div>
+            <div>
+              <label for="password">Password:</label>
+              <input type="password" id="password" required />
+            </div>
+            <button id="auth-submit" type="submit">Login</button>
+          </form>
+          <p id="auth-switch">
+            Don't have an account?
+            <a href="#" id="switch-to-signup">Sign up</a>
+          </p>
         </div>
-        <div class="product-details-info">
-          <h2 id="product-name"></h2>
-          <p id="product-price" class="product-details-price"></p>
-          <p id="product-description" class="product-details-description"></p>
-          <p id="product-category" class="product-details-category"></p>
-          <p id="product-rating" class="product-details-rating"></p>
-          <p id="product-stock" class="product-details-stock"></p>
-          <div class="product-details-options">
-            <select id="color-select">
-              <option value="">Select Color</option>
-            </select>
-            <select id="size-select">
-              <option value="">Select Size</option>
-            </select>
-          </div>
-          <button id="add-to-cart" class="add-to-cart">Add to Cart</button>
-        </div>
+      </div>
+    </div>
+
+    <main class="profile-container" id="profileContent">
+      <div class="profile-header">
+        <h2 id="profileName">User Profile</h2>
+        <a href="index.html" class="back-btn"
+          ><i class="ri-arrow-left-line"></i>Back to Home</a
+        >
+      </div>
+      <div class="profile-info" id="profileInfo"></div>
+      <div class="order-history" id="orderHistory"></div>
+      <div class="profile-actions">
+        <button class="profile-btn update-btn" onclick="showUpdateForm()">
+          Update Profile
+        </button>
+        <button class="profile-btn logout-btn" onclick="logout()">
+          Log Out
+        </button>
+      </div>
+      <div class="update-form" id="updateForm">
+        <input type="text" id="updateUsername" placeholder="Username" />
+        <input type="email" id="updateEmail" placeholder="Email" />
+        <input type="tel" id="updatePhone" placeholder="Phone Number" />
+        <input type="password" id="updatePassword" placeholder="New Password" />
+        <button onclick="updateProfile()">Save Changes</button>
       </div>
     </main>
 
@@ -213,6 +256,6 @@
     </footer>
     <!--=============== SCRIPT JS ===============-->
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/products.js"></script>
+    <script src="assets/js/profile.js"></script>
   </body>
 </html>

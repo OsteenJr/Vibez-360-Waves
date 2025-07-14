@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
 function loadProducts() {
     const productGrid = document.getElementById('productGrid');
     if (productGrid) {
-        console.log('Product grid found, loading products...');
         productGrid.innerHTML = products.map(product => `
             <a href="products.html?id=${product.id}" class="product-link">
                 <div class="product-card">
@@ -61,8 +60,7 @@ function filterByCategory() {
     if (!productGrid) {
         return;
     }
-
-    console.log('Filtering by category:', category);
+    
     const filteredProducts = category === 'all' ? products : products.filter(product => product.category === category);
 
     productGrid.innerHTML = filteredProducts.length > 0 ? filteredProducts.map(product => `
